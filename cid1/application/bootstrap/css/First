@@ -1,0 +1,64 @@
+figure {
+margin: 0;
+padding: 0;
+}
+img {
+display: block;
+padding: 3px;
+background: #FFF;
+}
+*[class="พาดหัว-ตรงกลาง"] {
+text-align: center;
+background: #333;
+padding: 20px;
+}
+*[class*="เขียนโค๊ดแบบสั้น"] {
+-moz-column-count: 4;
+-moz-column-gap: 1em;
+-moz-column-rule: 1px solid #FFF;
+-webkit-column-count: 3;
+-webkit-column-gap: 1em;
+-webkit-column-rule: 1px solid #FFF;
+column-count: 4;
+column-gap: 1em;
+column-rule: 1px solid #FFF;
+}
+*[class*="เขียนโค๊ดแบบยาว"] {
+-moz-column-width: 170px;
+-moz-column-count: 3;
+-moz-column-gap: 1em;
+-moz-column-rule-style: solid;
+-moz-column-rule-width: 1px;
+-moz-column-rule-color: pink;
+-webkit-column-width: 170px;
+-webkit-column-count: 3;
+-webkit-column-gap: 1em;
+-webkit-column-rule: 1px solid #FFF;
+-webkit-column-rule-style: solid;
+-webkit-column-rule-width: 1px;
+-webkit-column-rule-color: pink;
+column-width: 170px;
+column-count: 3;
+column-gap: 1em;
+column-rule-style: solid;
+column-rule-width: 1px;
+column-rule-color: pink;
+background: #666;
+padding: 10px;
+}
+figure[class="จัดกลาง"]>img {
+width: 100%;
+margin: 10px auto;
+}
+figure[class="จัดซ้าย"]>img {
+width: 60%;
+display: block;
+float: left;
+margin: 0 5px 5px 0;
+}
+figure[class="จัดขวา"]>img {
+width: 60%;
+display: block;
+float: right;
+margin: 0 0 5px 5px;
+}

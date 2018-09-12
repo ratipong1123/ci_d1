@@ -1,0 +1,71 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class member extends CI_Controller
+ {
+	public function login(){
+		$this->load->views("form_login");
+	}
+
+
+
+
+
+	 function add()
+		{
+		$data['title']="เพิ่มสมาชิก";
+		$data['class']="ปวส.D1 IT";
+		$this->load->view('addview',$data);
+		}
+	function addmember()
+		{
+
+			$data=array
+				(
+				'id'=>$this->input->get('id'),
+				'name'=>$this->input->get('name'),
+				'password'=>$this->input->get('password'),
+				'status'=>$this->input->get('status')
+				);
+
+		$this->db->insert("user",$data);
+		redirect("member/show","refresh");
+		exit();
+
+		}
+		public function show()
+		{
+			$sql="SELECT * FROM user";
+			$rs=$this->db->query($sql);
+
+			$data['rs']=$rs->result_array();
+			$this->load->view("showview",$data);
+
+		}
+		public function del($id)
+		{
+			$this->db->delete('user',array('id'=> $id));
+			redirect("member/show","refresh");
+			exit();
+		}
+		public function edit($id)
+	    {
+			$sql="SELECT * FROM user WHERE id=$id";
+			$rs=$this->db->query($sql);
+			$data['rs']=$rs->row_array();
+			$this->load->view("edit_view",$data);
+		}
+		public function update($id)
+	    {
+			$data=array(
+			"name"=>$this->input->post('name'),
+			"password"=>$this->input->post('password'),
+			"status"=>$this->input->post('status')
+			);
+			$this->db->where("id",$id);
+			$this->db->update("user",$data);
+			
+			redirect("member/show","refresh");
+			exit();
+		}
+
+}
